@@ -34,8 +34,7 @@ public class ConverterUI extends JFrame {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				inputField1.setText("");
-				inputField2.setText("");
+				clearField();
 			}
 		});
 
@@ -43,6 +42,7 @@ public class ConverterUI extends JFrame {
 		inputField1.addActionListener(new ConvertButtonListener());
 
 		inputField2 = new JTextField(10);
+		inputField2.addActionListener(new ConvertButtonListener());
 		inputField2.setEditable(false);
 
 		equalSymbol = new JLabel("=");
@@ -89,17 +89,20 @@ public class ConverterUI extends JFrame {
 	}
 
 	private void changeDirectionLeftToRight() {
-		inputField2.setText("");
 		inputField2.setEditable(false);
 		inputField1.setEditable(true);
 	}
 
 	private void changeDirectionRightToLeft() {
-		inputField1.setText("");
 		inputField2.setEditable(true);
 		inputField1.setEditable(false);
 	}
 
+	private void clearField() {
+		inputField2.setText("");
+		inputField1.setText("");
+	}
+	
 	public void run() {
 		setVisible(true);
 		pack();
@@ -109,7 +112,7 @@ public class ConverterUI extends JFrame {
 
 		public void actionPerformed(ActionEvent evt) {
 			String s;
-			if (direction2.isSelected())
+			if (direction2.isSelected() || evt.getSource() == inputField2)
 				s = inputField2.getText().trim();
 			else
 				s = inputField1.getText().trim();
@@ -120,12 +123,14 @@ public class ConverterUI extends JFrame {
 					double value = Double.valueOf(s);
 					Unit unit1 = (Unit) unit1ComboBox.getSelectedItem();
 					Unit unit2 = (Unit) unit2ComboBox.getSelectedItem();
-					if (direction2.isSelected()) {
+					if (direction2.isSelected()|| evt.getSource() == inputField2) {
 						resultValue = unitconverter.convert(value, unit2, unit1);
 						inputField1.setText(String.format("%.6f", resultValue));
+						inputField1.setEditable(false);
 					} else {
 						resultValue = unitconverter.convert(value, unit1, unit2);
 						inputField2.setText(String.format("%.6f", resultValue));
+						inputField2.setEditable(false);
 					}
 				} catch (Exception e) {
 					JOptionPane.showMessageDialog(null, "Please input the number");

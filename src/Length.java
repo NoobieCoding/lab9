@@ -1,4 +1,7 @@
-
+/**
+ * Enum that storing the length unit including its name and value.
+ * @author Nuttapong Rojanavanich
+ */
 public enum Length implements Unit{
 	METER("Meter", 1.0),
 	CENTIMETER("Centimeter", 0.01),
@@ -12,16 +15,24 @@ public enum Length implements Unit{
 	
 	public final String name;
 	public final double value;
-	
+	/**
+	 * Constructor with name and value as arguments.
+	 * @param name is the name of length unit.
+	 * @param value is the value of length unit.
+	 */
 	private Length(String name, double value) {
 		this.name = name;
 		this.value = value;
 	}
-	
+	/**
+	 * Return the value of length unit.
+	 */
 	public double getValue()  {
 		return value;
 	}
-	
+	/**
+	 * Return the name of length unit.
+	 */
 	public String getName() {
 		return name;
 	}

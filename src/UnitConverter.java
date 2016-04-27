@@ -1,5 +1,6 @@
 /**
- * Class for unit converter object.
+ * Convert the input unit into  a new unit.
+ * Unit that now can be used with this class is length unit.
  * @author Nuttapong Rojanavanich
  */
 public class UnitConverter {

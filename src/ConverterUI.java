@@ -4,7 +4,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
- * GUI of the length unit converter.
+ * Graphic user interface used for converting the length unit.
+ * Can convert the unit from left to right or right to left.
+ * The output is 6 digits number.
  * The initial direction is left to right.
  * @author Nuttapong Rojanavanich
  */
@@ -29,6 +31,7 @@ public class ConverterUI extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		initComponents();
 	}
+	
 	/**
 	 * Manage the layout of GUI.
 	 * Create and add components of the GUI.
@@ -99,6 +102,7 @@ public class ConverterUI extends JFrame {
 		lowerPart.add(direction2);
 
 	}
+	
 	/**
 	 * Change the editable of left text field to be true and right text field to be false.
 	 */
@@ -106,6 +110,7 @@ public class ConverterUI extends JFrame {
 		inputField2.setEditable(false);
 		inputField1.setEditable(true);
 	}
+	
 	/**
 	 * Change the editable of right text field to be true and left text field to be false.
 	 */
@@ -113,6 +118,7 @@ public class ConverterUI extends JFrame {
 		inputField2.setEditable(true);
 		inputField1.setEditable(false);
 	}
+	
 	/**
 	 * Clear the number in both left and right text field.
 	 */
@@ -120,6 +126,7 @@ public class ConverterUI extends JFrame {
 		inputField2.setText("");
 		inputField1.setText("");
 	}
+	
 	/**
 	 * Make this frame visible.
 	 * Make the size of the frame automatically fit the components.
@@ -128,12 +135,14 @@ public class ConverterUI extends JFrame {
 		setVisible(true);
 		pack();
 	}
+	
 	/**
 	 * ActionListener when pressing enter of convert button.
 	 * Convert the unit.
 	 * @author Nuttapong Rojanavanich
 	 */
 	class ConvertButtonListener implements ActionListener {
+		
 		/**
 		 * Convert the unit(can do for both left to right or right to left).
 		 * Alert the message when the input is not valid.

@@ -1,9 +1,9 @@
-
 /**
  * Class for unit converter object.
  * @author Nuttapong Rojanavanich
  */
 public class UnitConverter {
+	
 	/**
 	 * Convert the unit of the input amount.
 	 * @param amount is initial amount that is going to be converted.
@@ -15,6 +15,7 @@ public class UnitConverter {
 		double returnValue = amount * fromUnit.getValue();
 		return returnValue / toUnit.getValue();
 	}
+	
 	/**
 	 * Return all of the units available.
 	 * @return the array of units.

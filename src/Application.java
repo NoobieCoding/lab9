@@ -1,4 +1,3 @@
-
 /**
  * Application used to run the GUI.
  * @author Nuttapong Rojanavanich

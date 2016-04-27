@@ -15,6 +15,7 @@ public enum Length implements Unit{
 	
 	public final String name;
 	public final double value;
+	
 	/**
 	 * Constructor with name and value as arguments.
 	 * @param name is the name of length unit.
@@ -24,12 +25,14 @@ public enum Length implements Unit{
 		this.name = name;
 		this.value = value;
 	}
+	
 	/**
 	 * Return the value of length unit.
 	 */
 	public double getValue()  {
 		return value;
 	}
+	
 	/**
 	 * Return the name of length unit.
 	 */
